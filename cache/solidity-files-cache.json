@@ -1,13 +1,14 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/home/AvaxProject/contracts/Degen.sol": {
-      "lastModificationDate": 1682665722268,
-      "contentHash": "45073cb53a0ed834dd66d2b375367bd4",
-      "sourceName": "contracts/Degen.sol",
+    "/mnt/c/Users/HP/Documents/DegenTokenProject/contracts/DegenToken.sol": {
+      "lastModificationDate": 1719045402648,
+      "contentHash": "2ec43dc6868d94dfbe94027d9d4e1dea",
+      "sourceName": "contracts/DegenToken.sol",
       "solcConfig": {
-        "version": "0.8.18",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
             "enabled": false,
             "runs": 200
@@ -29,60 +30,23 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-        "@openzeppelin/contracts/access/Ownable.sol"
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol"
       ],
       "versionPragmas": [
-        "^0.8.9"
+        "^0.8.20"
       ],
       "artifacts": [
-        "Degen"
+        "DegenToken"
       ]
     },
-    "/home/AvaxProject/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
-      "lastModificationDate": 1682666796008,
-      "contentHash": "e436cea06129be2c73cda4b1acc848b5",
-      "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
-      "solcConfig": {
-        "version": "0.8.18",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../utils/Context.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Ownable"
-      ]
-    },
-    "/home/AvaxProject/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
-      "lastModificationDate": 1682666795828,
+    "/mnt/c/Users/HP/Documents/DegenTokenProject/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+      "lastModificationDate": 1718985716722,
       "contentHash": "834a0dde221759af42b030253315b086",
       "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
       "solcConfig": {
-        "version": "0.8.18",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
             "enabled": false,
             "runs": 200
@@ -115,13 +79,14 @@
         "ERC20"
       ]
     },
-    "/home/AvaxProject/node_modules/@openzeppelin/contracts/utils/Context.sol": {
-      "lastModificationDate": 1682666795728,
+    "/mnt/c/Users/HP/Documents/DegenTokenProject/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+      "lastModificationDate": 1718985715550,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
-        "version": "0.8.18",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
             "enabled": false,
             "runs": 200
@@ -150,13 +115,14 @@
         "Context"
       ]
     },
-    "/home/AvaxProject/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
-      "lastModificationDate": 1682666795938,
+    "/mnt/c/Users/HP/Documents/DegenTokenProject/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+      "lastModificationDate": 1718985718217,
       "contentHash": "ad7c2d0af148c8f9f097d65deeb4da6b",
       "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
       "solcConfig": {
-        "version": "0.8.18",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
             "enabled": false,
             "runs": 200
@@ -185,13 +151,14 @@
         "IERC20"
       ]
     },
-    "/home/AvaxProject/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
-      "lastModificationDate": 1682666795938,
+    "/mnt/c/Users/HP/Documents/DegenTokenProject/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+      "lastModificationDate": 1718985718226,
       "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
       "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
       "solcConfig": {
-        "version": "0.8.18",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
             "enabled": false,
             "runs": 200
