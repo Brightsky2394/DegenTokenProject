@@ -13,11 +13,20 @@ contract DegenToken is ERC20 {
         uint256 price;
     }
 
+    // Struct to represent player's inventory item
+    struct InventoryItem {
+        string name;
+        uint256 quantity;
+    }
+
     // Array to store the items available in the in-game store
     StoreItem[] public storeItems;
 
     // Mapping from item name to index in the storeItems array
     mapping(string => uint256) private itemIndex;
+
+    // Mapping from player address to their inventory
+    mapping(address => InventoryItem[]) private playerInventory;
 
     // Event for redeeming tokens for items
     event Redeemed(address indexed player, string item, uint256 amount);
@@ -27,7 +36,7 @@ contract DegenToken is ERC20 {
         owner = msg.sender;
     }
 
-    // Modifier to restrict access to owner only functions
+    // Modifier to restrict access to owner-only functions
     modifier onlyOwner() {
         require(
             msg.sender == owner,
@@ -72,7 +81,38 @@ contract DegenToken is ERC20 {
         );
 
         _burn(msg.sender, itemPrice);
+        addToInventory(msg.sender, itemName);
         emit Redeemed(msg.sender, storeItems[index].name, itemPrice);
+    }
+
+    // Function to add an item to a player's inventory
+    function addToInventory(address player, string memory itemName) internal {
+        InventoryItem[] storage inventory = playerInventory[player];
+        bool itemExists = false;
+
+        // Check if the item already exists in the inventory
+        for (uint256 i = 0; i < inventory.length; i++) {
+            if (
+                keccak256(abi.encodePacked(inventory[i].name)) ==
+                keccak256(abi.encodePacked(itemName))
+            ) {
+                inventory[i].quantity++;
+                itemExists = true;
+                break;
+            }
+        }
+
+        // If the item does not exist, add a new entry to the inventory
+        if (!itemExists) {
+            inventory.push(InventoryItem({name: itemName, quantity: 1}));
+        }
+    }
+
+    // Function to get a player's inventory
+    function getInventory(
+        address player
+    ) public view returns (InventoryItem[] memory) {
+        return playerInventory[player];
     }
 
     // Function to burn tokens, can be called by any token holder
