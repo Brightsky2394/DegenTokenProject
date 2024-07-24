@@ -16,7 +16,7 @@ contract DegenToken is ERC20 {
         uint256 quantity;
     }
 
-    StoreItem[] public storeItems;
+    StoreItem[] public storeItemsList;
     mapping(string => uint256) private itemIndex;
     mapping(address => InventoryItem[]) private playerInventory;
 
@@ -45,8 +45,8 @@ contract DegenToken is ERC20 {
         string memory itemName,
         uint256 itemPrice
     ) public onlyOwner {
-        storeItems.push(StoreItem({name: itemName, price: itemPrice}));
-        itemIndex[itemName] = storeItems.length - 1;
+        storeItemsList.push(StoreItem({name: itemName, price: itemPrice}));
+        itemIndex[itemName] = storeItemsList.length - 1;
     }
 
     function updateStoreItem(
@@ -54,15 +54,15 @@ contract DegenToken is ERC20 {
         uint256 itemPrice
     ) public onlyOwner {
         uint256 index = itemIndex[itemName];
-        require(index < storeItems.length, "Item does not exist");
-        storeItems[index] = StoreItem({name: itemName, price: itemPrice});
+        require(index < storeItemsList.length, "Item does not exist");
+        storeItemsList[index] = StoreItem({name: itemName, price: itemPrice});
     }
 
     function redeem(string memory itemName) public {
         uint256 index = itemIndex[itemName];
-        require(index < storeItems.length, "Item does not exist");
+        require(index < storeItemsList.length, "Item does not exist");
 
-        uint256 itemPrice = storeItems[index].price;
+        uint256 itemPrice = storeItemsList[index].price;
         require(
             balanceOf(msg.sender) >= itemPrice,
             "Insufficient amount of tokens"
@@ -117,6 +117,6 @@ contract DegenToken is ERC20 {
     }
 
     function getStoreItems() public view returns (StoreItem[] memory) {
-        return storeItems;
+        return storeItemsList;
     }
 }
